@@ -1,0 +1,9 @@
+<%= form_tag '/form_tag', method: :post do %>
+  <%= label_tag :test_name %>
+  <%= text_field_tag 'test[name]' %> <br>
+
+  <%= label_tag :test_teacher %>
+  <%= text_field_tag 'test[teacher]' %>
+
+<%= submit_tag "Submit the damn thing" %>
+<% end %>
