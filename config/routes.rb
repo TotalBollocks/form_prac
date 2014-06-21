@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/html', to: 'tests#html'
+  post '/html', to: 'tests#submit_html'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
