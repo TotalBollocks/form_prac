@@ -2,3 +2,11 @@
 <h2><%= @test[:teacher] %></h2>
 <p><%= @test[:summary] %></p>
 <h3>Num Qs: <%= @test[:questions] %></h3>
+<h3>Grades</h3>
+<ul>
+  <% @test[:grades].each do |g| %>
+  <li><%= g %></li>
+  <% end %>
+</ul>
+<h3>School name:</h3>
+<h6><%= @test[:school][:name] %></h6>

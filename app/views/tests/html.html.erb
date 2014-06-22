@@ -1,3 +1,26 @@
+<!-- 
+form tag:
+  -W3schools-
+  action="url" specifies url which rails will handle via routing.
+  method="http method" ..the http method
+
+input/textarea/submit:
+  -railsguides: action controller-
+  name="name" determine how the params hash will have the values
+  plain text value puts it as a key in params hash where value is user data
+    params[:name] => user data
+  names followed by [] are keys w/ array vals
+    name="ids[]" == params[:ids] => [1,2,3,4,5]
+  names with a name in []s make the previous thing a hash with that key
+    name="user[name]"
+    name="user[color]"  params[:user] => { name: "user input", color: "user input" }    
+
+label
+  -w3schools-
+  for="id"
+  link contents to a specific form widget. Search for id
+  Good practice and lets you use labels for checkboxes
+-->
 <form action="/html" method="post">
   <label for="name">Name: </label>
   <input type="text" id="name" name="test[name]"><br>
@@ -15,6 +38,15 @@
   
   <input type="radio" id="ten" name="test[questions]" value="10">
   <label for="ten">Ten</label><br>
+  
+  <label for="A">A: </label>
+  <input type="checkbox" id="A" value="A" name="test[grades][]"><br>
+  
+  <label for="B">B: </label>
+  <input type="checkbox" id="B" value="B" name="test[grades][]"><br>
+  
+  <label for="school_name">School name: </label>
+  <input type="text" id="school_name" name="test[school][name]"><br>
   
   <input type="submit" value="Submit">
 </form>
