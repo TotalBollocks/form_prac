@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post '/form_tag', to: 'tests#submit_form_tag'
   
   resources :products do
-    patch 'discontinue', on: :collection
+    collection do
+      get :edit_multiple
+      patch :update_multiple
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

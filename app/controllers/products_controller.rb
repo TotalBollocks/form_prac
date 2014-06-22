@@ -16,9 +16,18 @@ class ProductsController < ApplicationController
     end
   end
   
-  def discontinue
-    Product.where(id: params[:product_ids]).update_all(discontinued: true)
-    redirect_to products_path
+  def edit_multiple
+    @products = Product.where(id: params[:product_ids])
+  end
+  
+  def update_multiple
+    @products = Product.update(params[:products].keys, params[:products].values)
+    @products.reject! { |product| product.errors.empty? }
+    if @products.empty?
+      redirect_to products_path
+    else
+      render 'edit_multiple'
+    end
   end
   
   private
