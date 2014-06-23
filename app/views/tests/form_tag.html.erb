@@ -1,9 +1,31 @@
-<%= form_tag '/form_tag', method: :post do %>
+<!--  
+  API:
+  ActionView::Helpers::FormTagHelpers
+    form_tag(url_for_options, options, &block)
+      generates a form_tag and adds hidden fields for authenticity_token* and utf8*
+      url_options: any valid url_for* format?
+      options: any html attr/value as k/v (including method) More on API
+      block: content to be inside form tag
+
+    label_tag(name=nil, content_or_options=nil, options=nil, &block)
+      generates standard html label tag
+      name: value of the for attr
+      content_or_options: Content of the tag or options
+
+    text_field_tag(name, value=nil, options)
+      name: value of name attr
+      value: value of value attr
+      options: :disabled, :size, :maxlength, :placeholder
+
+    See API for more
+-->
+<%= form_tag '/form_tag', method: :post, id: "form_tag", class: "cool" do %>
+
   <%= label_tag :test_name %>
   <%= text_field_tag 'test[name]' %> <br>
 
   <%= label_tag :test_teacher %>
   <%= text_field_tag 'test[teacher]' %>
 
-<%= submit_tag "Submit the damn thing" %>
+  <%= submit_tag "Submit the damn thing" %>
 <% end %>
