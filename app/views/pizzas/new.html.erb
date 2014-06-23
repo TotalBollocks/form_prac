@@ -1,9 +1,22 @@
 <!-- 
   API:
-  form_for
+  form_for(record, options, &block)
+    create form for creating/updating a model record
+    record: string/symbol of object or actual object
+      string/sym will look for an @ version of itself and pass that to builder
+      sets action, method class and id based record and resource routing
+        new object gets action="/object/new" method="post" no class or id
+        existing object gets action="/object/id" method="patch" (where patch hack is used*)
+          class="edit_object" id="edit_object_id"
+    yields a FormBuilder
+
+  FormBuilders help build forms by scoping them to a specific model/name
+    all name attrs will go inside a hash of name/model specified and you define keys for it (model[])
+    if builder based on existing record, fills in values with w/e record has
+    Change value of submit if new or existing
 -->
 
-<%= form_for @pizza do |f| %>
+<%= form_for :pizza do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
 

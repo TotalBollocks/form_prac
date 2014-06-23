@@ -6,9 +6,10 @@ class PizzasController < ApplicationController
   end
 
   def new
-    @pizza = Pizza.new
+    @pizza = Pizza.new(name: 'pepperoni')
   end
 
   def edit
+    @pizza = Pizza.find 1
   end
 end
