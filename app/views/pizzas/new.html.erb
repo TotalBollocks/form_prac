@@ -9,14 +9,22 @@
         existing object gets action="/object/id" method="patch" (where patch hack is used*)
           class="edit_object" id="edit_object_id"
     yields a FormBuilder
+    options: html: {hash of html opts}, url: {custom url}, namespace: {"id_prefix"}
 
   FormBuilders help build forms by scoping them to a specific model/name
+    form_for gives the builder an object (by name at least) to work with
     all name attrs will go inside a hash of name/model specified and you define keys for it (model[])
-    if builder based on existing record, fills in values with w/e record has
     Change value of submit if new or existing
+    can call model form helpers on builder to automatically provide object_name and set value
+
+  Model formhelpers
+    form helpers that make it easier to work w/ models & can be combined with form builders
+    like the *_tag variants but take an object_name and method parameter, nesting method in the object_name hash in params
+      text_field(:person, :name) == params[:person][:name] => value (can't handle actual instance. Require name)
+      
 -->
 
-<%= form_for :pizza do |f| %>
+<%= form_for :pizza, namespace: "the_form" do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
 

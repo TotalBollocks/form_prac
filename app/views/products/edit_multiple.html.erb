@@ -1,5 +1,8 @@
 <!--  
-  Add documentation for fields_for soon...
+  fields_for(record_name, record_object, options, &block)
+    Works just like form_for without making the form tag
+    can be called by formbuilder to further nest the input name attrs (useful for nested attrs)
+    yields a formbuilder object
 -->
 <%= form_tag update_multiple_products_path, method: :patch do %>
   <% @products.each do |product| %>
