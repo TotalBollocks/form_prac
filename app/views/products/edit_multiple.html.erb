@@ -1,3 +1,6 @@
+<!--  
+  Add documentation for fields_for soon...
+-->
 <%= form_tag update_multiple_products_path, method: :patch do %>
   <% @products.each do |product| %>
 <%= fields_for 'products[]', product do |f| %>
