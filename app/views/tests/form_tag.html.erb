@@ -3,8 +3,8 @@
   ActionView::Helpers::FormTagHelpers
     form_tag(url_for_options, options, &block)
       generates a form_tag and adds hidden fields for authenticity_token* and utf8*
-      url_options: any valid url_for* format?
-      options: any html attr/value as k/v (including method) More on API
+      url_options: any valid url_for* format? -- url is current by default
+      options: any html attr/value as k/v (including method) More on API method is post by default
       block: content to be inside form tag
 
     label_tag(name=nil, content_or_options=nil, options=nil, &block)
